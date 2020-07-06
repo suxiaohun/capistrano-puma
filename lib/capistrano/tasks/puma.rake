@@ -24,7 +24,7 @@ namespace :puma do
           within current_path do
             with rack_env: fetch(:puma_env) do
               info "....env: #{fetch(:puma_env)}"
-              execute :puma, "-C #{fetch(:puma_conf)} --daemon"
+              execute :puma,"-e #{fetch(:puma_env)}", "-C #{fetch(:puma_conf)} --daemon"
             end
           end
         end
